@@ -15,7 +15,7 @@ for ep in episodes:
 time = piInfo.system.upTime()
 print(str(time.seconds/3600))
 
-test = '{:>10}'.format(str(time.seconds/3600))
+test = '{:>10}'.format(str(int(time.total_seconds()//3600)))
 
 print(test)
 

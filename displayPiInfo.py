@@ -19,7 +19,7 @@ oled.cmdSetRowOffset(0)
 
 curTemp = '{:4}'.format(str(piInfo.temp.CPU())+"C")
 curSpace = '{:>4}'.format(str(piInfo.sonarr.diskSpace('media'))+"%")
-upTime = '{:^6}'.format(str(piInfo.system.upTime().seconds/3600)+"h")
+upTime = '{:^6}'.format(str(int(piInfo.system.upTime().total_seconds()//3600))+"h")
 
 oled.cmdDisplayON()
 oled.cmdSetContrast(1)
