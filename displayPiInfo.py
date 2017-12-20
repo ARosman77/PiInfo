@@ -19,12 +19,13 @@ oled.cmdSetRowOffset(0)
 
 curTemp = '{:4}'.format(str(piInfo.temp.CPU())+"C")
 curSpace = '{:>4}'.format(str(piInfo.sonarr.diskSpace('media'))+"%")
-upTime = '{:^6}'.format(str(int(piInfo.system.upTime().total_seconds()//3600))+"h")
+#upTime = '{:^6}'.format(str(int(piInfo.system.upTime().total_seconds()//3600))+"h")
+upTimeStr = piInfo.system.upTimeAsDispStr()
 
 oled.cmdDisplayON()
 oled.cmdSetContrast(1)
 
-oled.printYelLn(curTemp+upTime+curSpace)
+oled.printYelLn(curTemp+upTimeStr+curSpace)
 
 episodes = piInfo.sonarr.upcomingEp(7)
 oled.printBluLn("UPCOMING EPISODES:",0,0)
