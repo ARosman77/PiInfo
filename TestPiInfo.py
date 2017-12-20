@@ -13,14 +13,26 @@ for ep in episodes:
     print(str(ep["seriesTitle"]))
 
 time = piInfo.system.upTime()
-print(str(time.seconds/3600))
+# test limits
+#from datetime import timedelta
+#time = timedelta(0,134*3600+43*60) 
+#print(time)
 
-upTime=int(time.total_seconds()//60)
-if upTime > 99999:
-    upTime=int(time.total_seconds()//3600)
-    upTimeStr = str(upTime)+'h'
+# show (xx min) until 59 min
+mode1Limit = 59*60
+# show (xxx:xx) until 999h 59 min
+mode2Limit = 999*3600 + 59*60
+# show (xxxxxh) else
+
+#upTime=int(time.total_seconds()//60)
+upTime = int(time.total_seconds())
+if upTime <= mode1Limit:
+    upTimeStr = str(upTime//60)+' min'
+elif upTime <= mode2Limit:
+    upTimeStr = '{:0>2}'.format(str(upTime//3600)) \
+       + ':'+ '{:0>2}'.format(str((upTime%3600)//60))
 else:
-    upTimeStr = str(upTime)+'m'
+    upTimeStr = str(upTime//3600)+'h'
 
 upTimeStr = '{:^6}'.format(upTimeStr)
 
