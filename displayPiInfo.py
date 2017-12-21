@@ -47,6 +47,3 @@ for idx,ep in enumerate(episodes):
         deltaDays = str(ep["deltaDays"].days)+'-'
     oled.printBluLn(deltaDays+seriesTitle+epNum,idx+1)
 
-#for idx,ep in enumerate(episodes):
-#    if idx>5: break
-#    oled.printBluLn(ep["seriesTitle"]+"-"+str(ep["episodeNumber"]),idx+1,0)
