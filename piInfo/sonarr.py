@@ -59,10 +59,10 @@ def upcomingEp(days=1):
     return listofep
 
 def queueInfo():
-    info = [{}]
+    info = []
     result=sendReq('queue')
     if len(result.json()) <= 0:
-        return info
+        return [{}]
     for data in result.json():
         epId = data['episode']['id']
         size = data['size']
@@ -75,5 +75,6 @@ def queueInfo():
                 "prDone":       prDone,
                 }
         info.append(qinfo)
+    return info
 
 
