@@ -22,4 +22,8 @@ for idx,ep in enumerate(episodes):
     else:
         deltaDays = str(ep["deltaDays"].days)+'-'
     print(deltaDays+seriesTitle+epNum)
+    # test additional info (downloaded, donwloading, procentage...)
+    if ep["hasFile"]: print("Downloaded")
+    else: print("Still wanted")
+    print("SerId:"+str(ep["seriesId"])+" EpId:"+str(ep["epid"]))
 

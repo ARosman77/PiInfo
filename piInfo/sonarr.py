@@ -42,15 +42,19 @@ def upcomingEp(days=1):
         episodeNum = data['episodeNumber']
         airDate = (datetime.strptime(data['airDate'],'%Y-%m-%d')).date()
         deltaDays = airDate - date.today()
-        #if delta.days >=0: print("+"+str(delta.days))
-        #else: print(str(delta.days))
-        #print(seriesTitle+' S'+str(seasonNum)+'E'+str(episodeNum))
+        # new info added for Issue #7
+        bHasFile = data['hasFile']
+        seriesId = data['seriesId']
+        epId = data['id'] 
         epInfo = {
                 "seriesTitle":      seriesTitle,
                 "seasonNumber":     seasonNum,
                 "episodeNumber":    episodeNum,
                 "airDate":          airDate,
                 "deltaDays":        deltaDays,
+                "hasFile":          bHasFile,
+                "seriesId":         seriesId,
+                "epid":             epId,
                 }
         listofep.append(epInfo)
     return listofep
