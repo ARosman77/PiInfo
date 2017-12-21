@@ -39,4 +39,14 @@ episodes = piInfo.sonarr.upcomingEp(7)
 oled.printBluLn("UPCOMING EPISODES:",0,0)
 for idx,ep in enumerate(episodes):
     if idx>5: break
-    oled.printBluLn(ep["seriesTitle"]+"-"+str(ep["episodeNumber"]),idx+1,0)
+    seriesTitle = '{:15}'.format(ep["seriesTitle"][:15])
+    epNum = 'E'+'{:0>2}'.format(str(ep["episodeNumber"]))
+    if ep["deltaDays"].days >=0:
+        deltaDays = '+'+str(ep["deltaDays"].days)+'-'
+    else:
+        deltaDays = str(ep["deltaDays"].days)+'-'
+    oled.printBluLn(deltaDays+seriesTitle+epNum,idx+1)
+
+#for idx,ep in enumerate(episodes):
+#    if idx>5: break
+#    oled.printBluLn(ep["seriesTitle"]+"-"+str(ep["episodeNumber"]),idx+1,0)
