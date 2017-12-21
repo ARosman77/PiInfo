@@ -26,4 +26,6 @@ for idx,ep in enumerate(episodes):
     if ep["hasFile"]: print("Downloaded")
     else: print("Still wanted")
     print("SerId:"+str(ep["seriesId"])+" EpId:"+str(ep["epid"]))
+# test queue info
+print(piInfo.sonarr.queueInfo())
 

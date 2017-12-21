@@ -34,7 +34,6 @@ def upcomingEp(days=1):
     listofep = []
     start = date.today().isoformat()
     end = (date.today()+timedelta(days=days)).isoformat()
-    #print("From "+start+" to "+end)
     result=sendReq('calendar','start='+start,'end='+end)
     for data in result.json():
         seriesTitle = data['series']['title']
@@ -58,3 +57,23 @@ def upcomingEp(days=1):
                 }
         listofep.append(epInfo)
     return listofep
+
+def queueInfo():
+    info = [{}]
+    result=sendReq('queue')
+    if len(result.json()) <= 0:
+        return info
+    for data in result.json():
+        epId = data['episode']['id']
+        size = data['size']
+        sizeleft = data['sizeleft']
+        prDone = sizeleft/size*100
+        qinfo = {
+                "epId":         epId,
+                "size":         size,
+                "sizeleft":     sizeleft,
+                "prDone":       prDone,
+                }
+        info.append(qinfo)
+
+
