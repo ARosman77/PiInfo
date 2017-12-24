@@ -21,10 +21,10 @@ for idx,ep in enumerate(episodes):
         deltaDays = '+'+str(ep["deltaDays"].days)+'-'
     else:
         deltaDays = str(ep["deltaDays"].days)+'-'
+    # test downloaded status
+    if ep["hasFile"]:
+        deltaDays = "* -"
     print(deltaDays+seriesTitle+epNum)
-    # test additional info (downloaded, donwloading, procentage...)
-    if ep["hasFile"]: print("Downloaded")
-    else: print("Still wanted")
     print("SerId:"+str(ep["seriesId"])+" EpId:"+str(ep["epid"]))
 # test queue info
 print(piInfo.sonarr.queueInfo())
