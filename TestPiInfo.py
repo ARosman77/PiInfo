@@ -28,6 +28,3 @@ for idx,ep in enumerate(episodes):
     print("SerId:"+str(ep["seriesId"])+" EpId:"+str(ep["epid"]))
 # test queue info
 print(piInfo.sonarr.queueInfo())
-# Testing git partial commits
-# This is to be commited later
-# what abou this line
