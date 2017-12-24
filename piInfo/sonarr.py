@@ -62,7 +62,8 @@ def queueInfo():
     info = []
     result=sendReq('queue')
     if len(result.json()) <= 0:
-        return [{}]
+        # return [{}] # what to return
+        return info
     for data in result.json():
         epId = data['episode']['id']
         size = data['size']
