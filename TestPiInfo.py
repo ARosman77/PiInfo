@@ -27,4 +27,8 @@ for idx,ep in enumerate(episodes):
     print(deltaDays+seriesTitle+epNum)
     print("SerId:"+str(ep["seriesId"])+" EpId:"+str(ep["epid"]))
 # test queue info
-print(piInfo.sonarr.queueInfo())
+qInfo = piInfo.sonarr.queueInfo()
+if len(qInfo)>0:
+    print(len(qInfo))
+else:
+    print("Nothing in queue")
