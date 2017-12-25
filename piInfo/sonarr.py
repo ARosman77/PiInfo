@@ -78,4 +78,9 @@ def queueInfo():
         info.append(qinfo)
     return info
 
-
+def isInQueue(episodeId):
+    """ Return true if episode is in download queue """
+    qInfo = queueInfo()
+    for ep in qInfo:
+        if ep["epId"] == episodeId:
+            return true
