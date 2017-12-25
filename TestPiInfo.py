@@ -6,14 +6,6 @@ import piInfo.sonarr
 import piInfo.system
 import requests
 
-# function that checks if episode is in queue
-def isInQueue(episodeId):
-    qInfo = piInfo.sonarr.queueInfo()
-    for ep in qInfo:
-        if ep["epId"] == episodeId:
-            return true
-
-
 # test temperature readings
 print("CPU temperature:" + str(piInfo.temp.CPU()) + 'C')
 # test free disk space readings
@@ -32,7 +24,8 @@ for idx,ep in enumerate(episodes):
     # test downloaded status
     if ep["hasFile"]:
         deltaDays = "* -"
-    if isInQueue(ep["epid"]):
+    # test isInQueue
+    if piInfo.sonarr.isInQueue(ep["epid"]):
         deltaDays = "Q -"
     print(deltaDays+seriesTitle+epNum)
     print("SerId:"+str(ep["seriesId"])+" EpId:"+str(ep["epid"]))
