@@ -11,6 +11,7 @@ API_BASE='http://localhost:8989/api'
 headers = { 'X-Api-Key': API_KEY }
 
 def sendReq(endpoint,*params):
+    """ Send request to API with headers and parameters """
     addr=API_BASE+'/'+endpoint
     index=0
     for param in params:
@@ -23,6 +24,7 @@ def sendReq(endpoint,*params):
     return result
 
 def diskSpace(diskPath):
+    """ Return procentage of freespace on disk mounted at diskPath """
     result=sendReq('diskspace')
     freeProc=0
     for disk in result.json():
@@ -31,6 +33,7 @@ def diskSpace(diskPath):
     return freeProc
 
 def upcomingEp(days=1):
+    """ Return list of upcoming episodes """
     listofep = []
     start = date.today().isoformat()
     end = (date.today()+timedelta(days=days)).isoformat()
@@ -59,6 +62,7 @@ def upcomingEp(days=1):
     return listofep
 
 def queueInfo():
+    """ Return download queue content """
     info = []
     result=sendReq('queue')
     if len(result.json()) <= 0:
