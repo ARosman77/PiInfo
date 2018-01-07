@@ -36,9 +36,9 @@ for line in range(0,6):
 
 # print episodes on blue lines
 episodes = piInfo.sonarr.upcomingEp(7)
-oled.printBluLn("UPCOMING EPISODES:",0,0)
+#oled.printBluLn("UPCOMING EPISODES:",0,0)
 for idx,ep in enumerate(episodes):
-    if idx>5: break
+    if idx>6: break
     seriesTitle = '{:15}'.format(ep["seriesTitle"][:15])
     epNum = 'E'+'{:0>2}'.format(str(ep["episodeNumber"]))
     if ep["deltaDays"].days >=0:
@@ -51,5 +51,5 @@ for idx,ep in enumerate(episodes):
     # check if isInQueue
     if piInfo.sonarr.isInQueue(ep["epid"]):
         deltaDays = "Q -"
-    oled.printBluLn(deltaDays+seriesTitle+epNum,idx+1)
+    oled.printBluLn(deltaDays+seriesTitle+epNum,idx)
 
