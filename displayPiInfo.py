@@ -45,5 +45,11 @@ for idx,ep in enumerate(episodes):
         deltaDays = '+'+str(ep["deltaDays"].days)+'-'
     else:
         deltaDays = str(ep["deltaDays"].days)+'-'
+    # check and show downloaded status
+    if ep["hasFile"]:
+        deltaDays = "* -"
+    # check if isInQueue
+    if piInfo.sonarr.isInQueue(ep["epid"]):
+        deltaDays = "Q -"
     oled.printBluLn(deltaDays+seriesTitle+epNum,idx+1)
 
