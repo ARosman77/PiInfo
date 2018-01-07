@@ -35,7 +35,7 @@ for line in range(0,6):
     oled.printBluLn("",line)
 
 # print episodes on blue lines
-episodes = piInfo.sonarr.upcomingEp(7)
+episodes = piInfo.sonarr.upcomingEp(5)
 #oled.printBluLn("UPCOMING EPISODES:",0,0)
 for idx,ep in enumerate(episodes):
     if idx>6: break
