@@ -87,4 +87,4 @@ def isInQueue(episodeId):
     qInfo = queueInfo()
     for ep in qInfo:
         if ep["epId"] == episodeId:
-            return true
+            return 1
