@@ -1,0 +1,7 @@
+# Config file for PiInfo
+[Sonarr]
+  server: localhost  ; insert address where sonarr is running
+  APIKey: ""  ; insert your API key
+
+[Temp]
+  precise: 1  ; return temperature more precisely if possible
