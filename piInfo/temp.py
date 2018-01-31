@@ -10,3 +10,10 @@ def CPU():
     temp = (temp0+temp1)/2
     return temp
 
+def CPUNew():
+    """ Return CPU temp in degC """
+    temp_file='/sys/devices/virtual/thermal/thermal_zone0/temp'
+    cat = lambda file: open(file, 'r').read().strip()
+    temp = int(cat(temp_file))
+    temp = (temp)/1000
+    return temp

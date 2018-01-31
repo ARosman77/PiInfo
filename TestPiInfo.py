@@ -7,7 +7,7 @@ import piInfo.system
 import requests
 
 # test temperature readings
-print("CPU temperature:" + str(piInfo.temp.CPU()) + 'C')
+print("CPU temperature:" + str(piInfo.temp.CPUNew()) + 'C')
 # test free disk space readings
 print("Disk "+str(piInfo.sonarr.diskSpace('media'))+'% free.')
 # test upTime for display command

@@ -7,7 +7,7 @@ from datetime import timedelta
 from datetime import datetime
 
 API_KEY='4b4a58ddaccd47718596a0b52a3427f9'
-API_BASE='http://localhost:8989/api'
+API_BASE='http://192.168.168.103:8989/api'
 headers = { 'X-Api-Key': API_KEY }
 
 def sendReq(endpoint,*params):
